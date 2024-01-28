@@ -44,3 +44,10 @@ p d
 
 
 
+# メソッドの定義
+
+def foo a,b
+  a + b
+end
+
+puts foo(1,2)
