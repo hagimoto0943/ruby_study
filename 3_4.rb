@@ -56,6 +56,4 @@ def sigmoid(x)
   return x / (x + Math.exp(0.01))
 end
 
-200.times do |i|
-  p 3 * sigmoid(i)
-end
+p 'unko'.class
