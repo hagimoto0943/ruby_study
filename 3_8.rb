@@ -103,4 +103,87 @@ while (0..4) === i do
   i += 1   
 end # => 0 1 2 3 4
 
-# u 
+# until式の例
+
+i = 0
+until i==5 do
+  p i
+  i += 1
+end # `=> 0 1 2 3 4`
+
+# while文とuntil文は、条件式が真の間、または偽の間、繰り返し処理を行います。
+# これらはさまざまな書き方が提供されています。
+
+# 後置while文
+
+i=0
+begin
+  p i
+  i += 1
+end while (0..4) === i # => 0 1 2 3 4
+
+i = 0
+p i += 1 while (0..4) === i # => 1 2 3 4 5
+
+# 後置until文
+
+i = 0
+begin
+  p i
+  i += 1
+end until i == 5 # => 0 1 2 3 4
+
+i = 0
+p i += 1 until i == 5 # => 1 2 3 4 5
+
+# while文とuntil文は、条件式が真の間、または偽の間、繰り返し処理を行います。
+# これらはさまざまな書き方が提供されています。
+
+# 後置while文
+
+i = 0
+begin
+  p i
+  i += 1
+end while (0..4) === i # => 0 1 2 3 4
+
+i = 0
+p i += 1 while (0..4) === i # => 1 2 3 4 5
+
+# 後置until文
+
+i = 0
+begin
+  p i
+  i += 1
+end until i == 5 # => 0 1 2 3 4
+
+i = 0
+p i += 1 until i == 5 # => 1 2 3 4 5
+
+# while文とuntil文は、条件式が真の間、または偽の間、繰り返し処理を行います。
+# これらはさまざまな書き方が提供されています。
+
+# 後置while文
+
+i = 0
+begin
+  p i
+  i += 1
+end while (0..4) === i # => 0 1 2 3 4
+
+i = 0
+p i += 1 while (0..4) === i # => 1 2 3 4 5
+
+# 後置until文
+
+i = 0
+begin
+  p i
+  i += 1
+end until i == 5 # => 0 1 2 3 4
+
+i = 0
+p i += 1 until i == 5 # => 1 2 3 4 5
+
+
