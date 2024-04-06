@@ -184,3 +184,67 @@ p1 = ->(x,y){p x + y}
 p1.call(1,2) # => 3
 
 # ブロックを受け取るメソッド
+
+# for,whileはスコープが作成されないという欠点があるので、配列やハッシュなどの走査niaamasitukawaremasenn.
+
+# 代わりにブロックを受けるメソッドが使われます・
+# これらのメソッドはをブロックの練習も兼ねて見ていく。
+# 配列の走査はeachメソッドを使用します。
+# このメソッドのブロックの引数には要素の値が格納されます。
+
+
+# 配列のeachメソッド
+[1,2,3].each do |value|
+  p value
+end # => 1,2,3
+
+# 配列のインデックスが必要な場合は、each_with_indexメソッドを使用します。
+# このブロックでは引数を２つとり、第二引数にインデックスが指定されます・
+
+# each_with_indexメソッド
+[2,3,4].each_with_index do |value, index|
+  p value + index
+end # => 2,4,6
+
+# ハッシュのeachメソッド
+
+{:a => 1, :b => 2}.each do |key, value|
+  p "#{key}: #{value}"
+end # => "a: 1", "b: 2"
+
+# キーのみ必要な場合はeach_keyメソッドを使用します。
+# 値のみ必要な場合はeach_valueメソッドを使用します。
+
+{:a => 1, :b => 2}.each_key do |key|
+  p key
+end # => :a, :b
+
+{:a => 1, :b => 2}.each_value do |value|
+  p value
+end # => 1, 2
+
+# eachメソッドは、Rangeクラスにも実装されています。
+
+# 範囲メソッドのeachメソッド
+(1..3).each do |value|
+  p value 
+end # => 1,2,3
+
+# 範囲を指定したループでは、値を増やしていくuptoメソッドも利用できます。
+# 逆に値を減らしていくdowntoメソッドもあります。
+
+# uptoメソッド
+2.upto(4) do |i|
+  p i
+end # 5から1まで降順に出力される
+
+# 回数を指定してループを実行する場合は、timesメソッドを使用します
+# timesメソッド
+4.times do |i|
+  p i 
+end # ０から３まで順に出力
+
+# どれもforやwhileよりも、英語に近い形式で記述できる。
+# コードの可読性の観点から、可能な限りこちらを使用する。
+
+# スレッド
