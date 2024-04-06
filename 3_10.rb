@@ -129,4 +129,58 @@ end
 
 func(1) do
   2
+end # => 3
+
+
+# lambda
+# Procに関連してlambdaメソッドも理解しておきましょう。
+# lambdaメソッドは、Proc.newと同様にProcオブジェクトを生成しますが、
+
+lmd = lambda{|x| p x}
+# 以下のようにも書ける
+lmd = ->(x){p x}
+lmd.call(1) # => 1
+
+# このように作成したProcインスタンスはlambdaとも呼ばれ、
+# オブジェクト化されていないブロックやProc.newで生成したProcインスタンスよりもメソッドに近い動きをします。
+
+# それに対し、Proc.newで生成したオブジェクトをprocとも呼びます。
+
+# procとlambdaの違い
+# proc中のreturnは、生成元のスコープを脱出します。
+# lambdaは、そのブロック内でreturnを実行すると、呼び出し元に戻ります。
+
+def func 
+  proc = Proc.new{return 1}
+  proc.call # ここでメソッドを抜ける
+  2 # この行は実行されない
 end
+
+p func # => 1
+
+def func
+  proc = lambda{return 1}
+  proc.call  # ここでメソッドを抜ける
+  2 # この行は実行される
+end
+
+p func # => 2
+
+# 引数の数が一致しない場合、メソッドでは例外ArgumentErrorが発生しますが、
+# procやオブジェクト化されて嬰内ブロックでは、余分な実引数を無視したり、実引数が足りない場合にnilを返すなどの挙動を示します。
+
+# procの引数
+p1 = Proc.new {|x,y| y}
+p p1.call(1) # => nil
+
+# これはlambdaでも同様です。
+
+# lambdaの引数
+p1 = lambda{|x,y| y}
+p p1.call(1) # => Argument Error: wrong number of arguments (given 1, expected 2)
+
+# 「->」を使用したlambda記法
+p1 = ->(x,y){p x + y}
+p1.call(1,2) # => 3
+
+# ブロックを受け取るメソッド
