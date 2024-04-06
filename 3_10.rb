@@ -120,3 +120,13 @@ end
 proc = Proc.new{2}
 
 func(1, &proc) # => 3
+
+# ブロックをProcオブジェクトに変換するには、&を付けて引数に指定します。
+
+def func x, &proc
+  x + proc.call
+end
+
+func(1) do
+  2
+end
