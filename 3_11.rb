@@ -92,7 +92,26 @@ foo # => 1
 # 例外の再発生
 begin
   1/0
-rescue ZeroDivisionError
-  p $!.calss # ZeroDivisionError
-  raise # ZeroDivisionErrorの再発生
+rescue ZeroDivisionError => e
+  p $!.calss #　=> ZeroDivisionError
+  raise  # 例外を再発生させる
 end 
+
+# 例外処理を呼び出し元にユダれるのではなく、自分で解決して再度行いたい場合は、
+# retryが便利です。これは、再度begin説を実行します。
+# この場合でもensure説は一回しか実行されません。
+
+# retry
+a = 0
+
+begin
+  b = 1 / a # 例外が発生する
+rescue ZeroDivisionError # 例外が発生すると、rescue説が実行される
+  a += 1  # aをインクリメントして、再度begin説を実行
+  retry   # retryで再度begin説を実行
+ensure # ensureは必ず実行される
+  p b
+end # => 1
+
+# rescue節を複数指定した場合の動作を確認して、例外の説明を終了します。
+# 
