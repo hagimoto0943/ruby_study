@@ -210,3 +210,16 @@ puts Piyo.new.message
 # Piyoのinitializeは@messageに"Hi"を格納した後、スーパークラスのinitializeを呼び出します。
 # PiyoのスーパークラスHogeでは@messageに"Hello"を代入しているので、@messageの最終的な値は"Hello"となります。
 
+# 問題10
+# 以下のメソッドは円の面積を求めるコードです。
+# このままでは動きません。このコードを動かすための修正方法として適切なものは何か。
+
+def area r
+  return r * r * PI
+end
+
+# 解説
+# 定数PIはMathモジュールに定義されています。
+# したがってPIを使うには、Mathもジュ＾流をインクルードするか、選択肢５のように
+# Math::PIと記述してPIのモジュールを明示的に宣言します。
+
