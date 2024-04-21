@@ -19,3 +19,4 @@ cat.status  # => "sleeping"
 cat.assign_attributes(name: 'mike')
 cat.name    # => "mike"
 cat.satatus # => "sleeping"
+
