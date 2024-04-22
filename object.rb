@@ -14,7 +14,7 @@ p foo1.method1 # => 1
 p foo2.method1 # => 2
 
 class FooExt < Foo
-  def initialize(a)
+  def initialize(a,b)
     @b = b
     super(a)
   end
