@@ -22,3 +22,5 @@ class FooExt < Foo
     @a + @b + c
   end
 end
+
+fooExt = FooExt.new(3,4)
